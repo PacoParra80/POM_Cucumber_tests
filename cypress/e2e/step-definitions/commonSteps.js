@@ -25,5 +25,20 @@ Given("I visit {string}", (url) => {
  Given("I type in the text box with data test {string} the text {string}", (texBoxByDataText, text) => {
   commonPage.typeInTextBoxByDataTest(texBoxByDataText, text);
  });
+
+ Given("I verify that the data test {string} contains the text {string}", (elementByDataTest, text) => {
+  commonPage.checkElementContains(elementByDataTest, text);
+ });
  
+ Given("I verify that the body contains the text {string}", (text) => {
+  commonPage.checkBodyContainsText(text);
+});
+
+ Given("I verify that the body does not contain the text {string}", (text) => {
+  commonPage.checkBodyNotContainsText(text);
+});
+
+ Given("I get the element with class {string}", (className) => {
+  commonPage.getElementByClass(className);
+});
 

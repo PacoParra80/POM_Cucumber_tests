@@ -32,10 +32,13 @@ Given("I type the user name {string}", (user) => {
   loginPage.typeUser(user);
  });
 
- Given("I type the password {string}", (password) => {
-  loginPage.typePassword(password);
- });
+Given("I type the password {string}", (password) => {
+loginPage.typePassword(password);
+});
 
+Given("I verify that the error message is {string}", (text) => {
+loginPage.checkErrorMessage(text)
+});
 
 
 

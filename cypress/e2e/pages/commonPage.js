@@ -49,4 +49,23 @@ export class CommonPage{
    clickButtonByText (text) {
     cy.get('inputbutton').contain(text).click()
    }
+
+    // Verificar que en el body aparezca un texto
+  checkBodyContainsText(text) {
+    cy.get('body').should('contain', text);
+  }
+
+  // Verificar que en el body NO aparezca un texto
+  checkBodyNotContainsText(text) {
+    cy.get('body').should('not.contain', text);
+  }
+
+  // Obtener un elemento por su clase
+  getElementByClass(className) {
+    return cy.get(`.${className}`);
+  }
+
+   
+
+   
  }

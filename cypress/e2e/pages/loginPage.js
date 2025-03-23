@@ -40,4 +40,12 @@ export class LoginPage extends CommonPage{
  typePassword (password) {
   cy.get('[data-test="password"]').type(password);
  }
+
+ getErrorMessage () {
+  return this.getElementByDataTest("error")
+ }
+
+ checkErrorMessage (text) {
+  this.getErrorMessage().should('have.text', text)
+ }
 }
