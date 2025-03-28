@@ -65,6 +65,17 @@ export class CommonPage{
     return cy.get(`.${className}`);
   }
 
+  
+  /// Función para testear accesibilidad
+  testAccesibilityInScreen () {
+    cy.injectAxe();
+    cy.checkA11y();
+  }
+
+  testAccesibilityOnElement (elementLocator) {
+    cy.injectAxe();
+    cy.checkA11y(elementLocator)
+  }
    
 
    

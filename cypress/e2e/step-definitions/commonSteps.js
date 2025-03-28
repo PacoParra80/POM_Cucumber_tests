@@ -42,3 +42,11 @@ Given("I visit {string}", (url) => {
   commonPage.getElementByClass(className);
 });
 
+Given('I test the accesibility in all the screen', () => {
+  commonPage.testAccesibilityInScreen()
+})
+
+Given('I test the accesibility on the element with locator {string}', (elementLocator) => {
+  commonPage.testAccesibilityOnElement(elementLocator)
+})
+
