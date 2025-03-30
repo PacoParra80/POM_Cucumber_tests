@@ -40,6 +40,45 @@ Given("I verify that the error message is {string}", (text) => {
 loginPage.checkErrorMessage(text)
 });
 
+ // Ejercicios 25/03/2025
+
+ Given("I check that all Accepted usernames appears in login page", () => {
+  loginPage.checkAcceptedUsernames();
+});
+
+Given("I check that all user in the const accepterUserNames appears in login page", () => {
+  loginPage.checkAcceptedUsernamesBetter();
+});
+ 
+
+Given("I check that the error message {string} appears", (errorMessage) => {
+  loginPage.checkErrorMessages(errorMessage);
+ });
+
+
+Given("I check that the user names in the const acceptedtUserNames appears in the login credentials element", () => {
+  acceptedtUserNames.forEach(userNames => {
+    loginPage.checkElementContains("login-credentials", userNames);
+  })
+});
+
+Given("I check that the element login credentials contain the all the accepted users", () => {
+  loginPage.checkElementContains("login-credentials", "standard_user");
+  loginPage.checkElementContains("login-credentials", "locked_out_user");
+  loginPage.checkElementContains("login-credentials", "problem_user");
+  loginPage.checkElementContains("login-credentials", "performance_glitch_user");
+  loginPage.checkElementContains("login-credentials", "error_user");
+  loginPage.checkElementContains("login-credentials", "visual_user");
+});
+
+//------------------------------------------------------------------------------------------------------//
+
+
+//session
+Given("I login and keep the sesion for the standar_user", () => {
+  loginPage.loginKeepSession();
+});
+
 
 
 

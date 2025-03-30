@@ -66,7 +66,33 @@ export class CommonPage{
   }
 
   
-  /// Función para testear accesibilidad
+  // Ejercicios 25/03/2025
+
+  checkElementBydataTest (elementDataTest, assertion) {
+    this.getElementByDataTest(elementDataTest).should(assertion)
+   }
+   checkBodyContainText (text) {
+    cy.get('body').should('contain', text)
+   }
+
+   checkBodyNotContainText (text) {
+    cy.get('body').should('not.contain', text)
+   }
+
+   checkBodyText (assertion, text) {
+    cy.get('body').should(assertion, text)
+   }
+
+  getElementByClass(className) {
+    return cy.get(`[class = "${className}"]`)
+  }
+
+  getElementByAttribute(attribute, className) {
+    return cy.get(`[${attribute} = "${className}"]`)
+  }
+
+//------------------------------------------------------------------------------------------------------------//
+/// Función para testear accesibilidad
   testAccesibilityInScreen () {
     cy.injectAxe();
     cy.checkA11y();
@@ -75,6 +101,21 @@ export class CommonPage{
   testAccesibilityOnElement (elementLocator) {
     cy.injectAxe();
     cy.checkA11y(elementLocator)
+  }
+
+  interceptHBOApiCall () {
+    cy.intercept('GET','**/ot_guard_logo.svg').as('hboCookies');
+    cy.wait('@hboCookies', {timeout:10000}); 
+  }
+
+  interceptApiCall (apiCall) {
+    cy.intercept('GET',apiCall).as('apiCallAlias');
+    cy.wait('@apiCallAlias', {timeout:10000}); 
+  }
+
+  interceptApiCallMethodTimeout (method, apiCall, timeoutTime) {
+    cy.intercept(method,apiCall).as('apiCallAlias');
+    cy.wait('@apiCallAlias', {timeout:timeoutTime}); 
   }
    
 
