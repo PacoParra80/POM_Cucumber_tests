@@ -1,3 +1,4 @@
+@regression @main
 Feature: Main test suite
 
 Background:
