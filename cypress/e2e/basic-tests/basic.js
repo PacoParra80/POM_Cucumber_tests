@@ -27,7 +27,7 @@ describe("basic test", () => {
 
   })
 
-  it.only("Login Errors", () => {
+  it("Login Errors", () => {
     cy.get('[data-test="password"]').type("secret_sauce")
     cy.get('[data-test="login-button"]').click()
     cy.get('[data-test="error"]').should('be.visible')

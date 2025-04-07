@@ -2,7 +2,8 @@ Feature: Main test suite
 
 Background:
   Given I login and keep the sesion for the standar_user
-
+  
+  @smoke
   Scenario: Add a product to cart from products overview
     Given I check that the element with data-test "shopping-cart-badge" should "not.exist"
     When I click on the element with data-test "add-to-cart-sauce-labs-backpack"

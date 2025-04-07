@@ -32,7 +32,7 @@ Background:
 #   Then I check that the url include the endpoint "inventory.html"
 
 
-
+ @smoke
  Scenario: Accepted usernames assertion
   Given I verify that the data test "login-credentials" contains the text "standard_user"
   And I verify that the data test "login-credentials" contains the text "locked_out_user"
@@ -112,7 +112,7 @@ Background:
     When I click on the button with data-test "login-button"
     Then I check that the element with data-test "error" should "be.visible"
     And I check that the element with data-test "error" contain the text "Epic sadface: Password is required"
-
+  @smoke
   Scenario Outline: Check all error messages in login - Scenario outline
     Given I type in the text box with data test "username" the text "<username>"    
     And I type in the text box with data test "password" the text "<password>"
