@@ -1,8 +1,6 @@
 name: Cypress Smoke Tests
 
 on:
-  push:
-  pull_request:
   workflow_dispatch:
 
 jobs:
