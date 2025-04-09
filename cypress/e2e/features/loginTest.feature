@@ -43,7 +43,7 @@ Background:
 
 
 
-
+ @login
  Scenario: Username is required
     Given I type the correct password in login page
     And I click on the login button
@@ -83,7 +83,8 @@ Background:
 
   Scenario: Check all user in the const accepterUserNames appears in login page with a specific function
     Given I check that all user in the const accepterUserNames appears in login page
-
+    
+  @smoke
   Scenario: Check all accepted user names that appears in login page using parameterized steps
     Given I check that the element with data-test "login-credentials" contain the text "standard_user"
     And I check that the element with data-test "login-credentials" contain the text "locked_out_user"
@@ -112,7 +113,7 @@ Background:
     When I click on the button with data-test "login-button"
     Then I check that the element with data-test "error" should "be.visible"
     And I check that the element with data-test "error" contain the text "Epic sadface: Password is required"
-  @smoke
+  
   Scenario Outline: Check all error messages in login - Scenario outline
     Given I type in the text box with data test "username" the text "<username>"    
     And I type in the text box with data test "password" the text "<password>"
